@@ -50,6 +50,7 @@ const Signup = (props) => {
             } else {
                 localStorage.setItem('userData', JSON.stringify([signupData]));
             }
+            setMessage("Signup Successfully")
             props.history.replace("/login")
         }
     };

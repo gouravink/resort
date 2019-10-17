@@ -1,18 +1,48 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import "./login.css";
+import ToastContext from '../../Context/toastContext';
 
 const Login = () => {
     let localStorageData = localStorage.getItem('userData');
     localStorageData = JSON.parse(localStorageData);
-    console.log(localStorageData)
+    const 
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const { setMessage } = useContext(ToastContext)
+
+    const validForm = () => {
+        let valid = true;
+        if (!email.trim()) {
+            valid = false
+            setMessage("Enter Email Address")
+        } else if (!password.trim()) {
+            valid = false
+            setMessage("Enter Password")
+        } 
+        return valid
+    }
+
+
+    
     return (
         <Fragment>
             <div className="wrapper fadeInDown">
                 <div id="formContent">
                     <h2><small>Login</small></h2>
                     <form>
-                        <input type="text" id="login" className="fadeIn second" name="login" placeholder="login" />
-                        <input type="text" id="password" className="fadeIn third" name="login" placeholder="password" />
+                        <input type="text" id="login" className="fadeIn second" name="login" placeholder="login"
+                            onChange={(e) => {
+                                setEmail(e.target.value)
+                            }}
+                            value={email}
+                        />
+                        <input type="text" id="password" className="fadeIn third" name="login" placeholder="password"
+                            onChange={(e) => {
+                                setPassword(e.target.value)
+                            }}
+                            value={password}
+                        />
                         <input type="submit" className="fadeIn fourth" value="Log In" />
                     </form>
                     <div id="formFooter">
