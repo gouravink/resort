@@ -9,6 +9,7 @@ const Signup = (props) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [phone, setPhone] = useState('');
+    const [userRole, setUserRole] = useState({ admin: 1, user: 2, other: 3 })
     const { setMessage } = useContext(ToastContext);
     ////////////////////////////////////////////////////////////////
     const validateForm = () => {
@@ -36,14 +37,15 @@ const Signup = (props) => {
     };
 
     ////////////////////////////////////////////////////////////////
-    const doSignup = (e) => {e.preventDefault()
+    const doSignup = (e) => {
+        e.preventDefault()
         const validForm = validateForm();
-        const signupData = {fname, lname, email, password, phone}
+        const signupData = { fname, lname, email, password, phone, userRole}
         //console.log("Signup data", signupData)
-        if(validForm){
+        if (validForm) {
             let localStorageData = localStorage.getItem('userData');
-           // console.log(localStorageData);
-            if(localStorageData) {
+            // console.log(localStorageData);
+            if (localStorageData) {
                 localStorageData = JSON.parse(localStorageData);
                 localStorageData.push(signupData);
                 localStorage.setItem('userData', JSON.stringify(localStorageData));
@@ -60,7 +62,7 @@ const Signup = (props) => {
             <div className="wrapper fadeInDown">
                 <div id="formContent">
                     <h2><small>Signup</small></h2>
-                    <form  onSubmit = {doSignup}>
+                    <form onSubmit={doSignup}>
                         <input type="text" value={fname} id="fname" className="fadeIn second" name="fname" placeholder="First Name"
                             onChange={(e) => {
                                 setMessage(false)
@@ -96,6 +98,12 @@ const Signup = (props) => {
                                 setPhone(e.target.value)
                             }}
                         />
+                        <select>
+                            <option value="select">Select User Role</option>
+                            <option>Admin</option>
+                            <option>User</option>
+                            <option>Other</option>
+                        </select>
                         <input type="submit" className="fadeIn fourth" />
                     </form>
                     <div id="formFooter">
