@@ -26,11 +26,14 @@ const Login = (props) => {
     const doLogin = (e) =>{e.preventDefault()
         const validForm = validateForm()
         if(validForm){
-            console.log("found")
+           // console.log("found")
             var emailFound = localStorageData.find(o => o.email === email);
             var passwordFound = localStorageData.find(o => o.password === password);
+            
             if(emailFound && passwordFound){
                 setMessage("Logged in successfully")
+                localStorage.setItem('authenticated_email', JSON.stringify(email));
+                localStorage.setItem('authenticated_password', JSON.stringify(password));
                 props.history.replace("/login")
             }else{
                 setMessage("Logged in not successfully")
@@ -50,7 +53,7 @@ const Login = (props) => {
                             }}
                             value={email}
                         />
-                        <input type="text" id="password" className="fadeIn third" name="login" placeholder="password"
+                        <input type="password" id="password" className="fadeIn third" name="login" placeholder="password"
                             onChange={(e) => {
                                 setPassword(e.target.value)
                             }}

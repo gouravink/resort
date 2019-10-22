@@ -47,7 +47,7 @@ const Signup = (props) => {
             // console.log(localStorageData);
             if (localStorageData) {
                 localStorageData = JSON.parse(localStorageData);
-                localStorageData.push(signupData);
+                localStorageData.push(signupData);               
                 localStorage.setItem('userData', JSON.stringify(localStorageData));
             } else {
                 localStorage.setItem('userData', JSON.stringify([signupData]));
