@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import logo from '../Assets/logo-main.png'
 import { FaAlignRight } from 'react-icons/fa';
 
-const Navbar = (props) => {
+const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleToggle = () => setIsOpen(!isOpen);
@@ -13,7 +13,7 @@ const Navbar = (props) => {
     const logOut = () => {
         localStorage.removeItem("authenticated_email");
         localStorage.removeItem("authenticated_password");
-        props.history.replace("/");
+        window.location.href = "/"
     }
 
     return (
@@ -27,11 +27,13 @@ const Navbar = (props) => {
                         <FaAlignRight className="nav-icon" />
                     </button>
                 </div>
+                {console.log('sedfsdafsdf',isLoggedIn())}
                 <ul className={isOpen ? "nav-links show-nav" : "nav-links"}>
-                    {isLoggedIn ?
+                    {isLoggedIn() ?
                         <li>
                             <Link to="/">HOME</Link>
                             <Link to="/rooms">ROOMS</Link>
+                            <button onClick={() => logOut()}>Logout</button>
                         </li>
                         : <li>
                             <Link to="/">HOME</Link>
@@ -39,7 +41,7 @@ const Navbar = (props) => {
                             <Link to="/signup">SIGNUP</Link>
                         </li>
                     }
-                </ul>             
+                </ul>
             </div>
         </nav>
     )

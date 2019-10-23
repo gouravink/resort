@@ -34,7 +34,7 @@ const Login = (props) => {
                 setMessage("Logged in successfully")
                 localStorage.setItem('authenticated_email', JSON.stringify(email));
                 localStorage.setItem('authenticated_password', JSON.stringify(password));
-                props.history.replace("/login")
+                props.history.replace("/")
             }else{
                 setMessage("Logged in not successfully")
             }

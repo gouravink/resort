@@ -8,9 +8,10 @@ import Rooms from './pages/Rooms/Rooms';
 import SingleRoom from './pages/Rooms/SingleRoom'
 import PageNotFound from './pages/PageNotFound';
 import Navbar from './components/navbar';
-import ToastContext from './Context/toastContext'
-import Toast from './components/Toast/toast'
-import AddRoom from './pages/Rooms/addRoom'
+import ToastContext from './Context/toastContext';
+import Toast from './components/Toast/toast';
+import AddRoom from './pages/Rooms/addRoom';
+import ShowRooms from './pages/Rooms/showRooms'
 
 const App = () => {
   const [message, showMessage] = useState(false);
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/rooms" component={Rooms} />
             <Route path="/single-room" component={SingleRoom} />
             <Route path="/add-room" component={AddRoom} />
+            <Route path="/show-rooms" component={ShowRooms} />
             <Route component={PageNotFound} />
           </Switch>
         </Fragment>

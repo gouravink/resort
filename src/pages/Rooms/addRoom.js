@@ -16,36 +16,38 @@ const AddRoom = (props) => {
 
     const validForm = () => {
         let valid = true;
-        if (!rname) {
+        if (!rname.trim()) {
             valid = false;
             setMessage("Enter Room Name")
-        } else if (!address) {
+        } else if (!address.trim()) {
             valid = false;
             setMessage("Enter Address")
-        } else if (!phone) {
+        } else if (!phone.trim()) {
             valid = false;
             setMessage("Enter Phone Number")
-        } else if (!price) {
+        } else if (!price.trim()) {
             valid = false;
             setMessage("Enter Price")
-        } else if (!city) {
+        } else if (!city.trim()) {
             valid = false;
             setMessage("Enter City")
-        } else if (!postCode) {
+        } else if (!postCode.trim()) {
             valid = false;
             setMessage("Enter Post Code")
-        } else if (!country) {
+        } else if (!country.trim()) {
             valid = false;
             setMessage("Enter Country")
         }
         return valid
     }
 
-    const doAddRoomData = () => {
+    const doAddRoomData = ({ e }) => {
+        e.preventDefault()
         const validFormData = validForm()
         const addRoomData = { rname, address, phone, price, city, postCode, country }
 
         if (validFormData) {
+            //console.log("In")
             let localStorageData = localStorage.getItem('addRoomInfo');
             if (localStorageData) {
                 localStorageData = JSON.parse(localStorageData);
@@ -54,6 +56,7 @@ const AddRoom = (props) => {
             } else {
                 localStorage.setItem('addRoomInfo', JSON.stringify([addRoomData]));
             }
+            setMessage("Add Room Successfully")
         }
     }
     return (
