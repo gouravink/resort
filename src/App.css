@@ -498,6 +498,36 @@ h6 {
 .size-inputs {
   display: flex;
 }
+select{
+  background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 85%;
+    border: 2px solid #f6f6f6;
+    transition: all 0.5s ease-in-out;
+    border-radius: 5px 5px 5px 5px;
+}
+input[type=checkbox]{
+  background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    width: 5%;
+    border: 2px solid #f6f6f6;
+    transition: all 0.5s ease-in-out;
+    border-radius: 5px 5px 5px 5px;
+}
 .size-input {
   width: 40%;
   padding: 0.2rem;

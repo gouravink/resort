@@ -26,7 +26,7 @@ const Login = (props) => {
     const doLogin = (e) =>{e.preventDefault()
         const validForm = validateForm()
         if(validForm){
-           // console.log("found")
+            console.log("found")
             var emailFound = localStorageData.find(o => o.email === email);
             var passwordFound = localStorageData.find(o => o.password === password);
             

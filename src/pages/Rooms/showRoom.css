@@ -1,0 +1,17 @@
+.showrooms-body .room-sec{
+    border: 2px solid #f1d4dc;
+    padding: 2em;
+    background: #efefef;
+}
+.viewRoom{
+    background: #C70039;
+    color: #fff;
+    padding: 0.6em;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+}
+.viewRoom:hover{
+    color: #efefef;
+    text-decoration: none
+}

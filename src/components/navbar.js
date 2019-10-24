@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../Assets/logo-main.png'
 import { FaAlignRight } from 'react-icons/fa';
 
@@ -27,13 +27,12 @@ const Navbar = () => {
                         <FaAlignRight className="nav-icon" />
                     </button>
                 </div>
-                {console.log('sedfsdafsdf',isLoggedIn())}
                 <ul className={isOpen ? "nav-links show-nav" : "nav-links"}>
                     {isLoggedIn() ?
                         <li>
                             <Link to="/">HOME</Link>
                             <Link to="/rooms">ROOMS</Link>
-                            <button onClick={() => logOut()}>Logout</button>
+                            <button className="btn btn-danger" onClick={() => logOut()}>Logout</button>
                         </li>
                         : <li>
                             <Link to="/">HOME</Link>
